@@ -21,8 +21,13 @@ jobs:
             python -m pygbag --build $GITHUB_WORKSPACE/robot/main.py
             echo "Successfully built the game and compiled to WebAssembly"
 
-    - name: "Upload to GitHub pages branch gh-pages"
+    - name: "Upload to GitHub Pages branch gh-pages"
       uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # Ensure token is passed
         branch: gh-pages
         folder: robot/build/web
+
+
+
+        
